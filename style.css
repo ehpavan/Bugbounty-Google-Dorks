@@ -1,97 +1,35 @@
-* {
-  box-sizing: border-box;
-  font-family: monospace;
-}
-
-body {
-  background: #0b0f14;
-  color: #e6edf3;
-  margin: 0;
-}
-
-.container {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 20px;
-}
-
-h1 {
-  color: #58a6ff;
-}
-
-/* Input row */
-.input-row {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-input {
-  flex: 1;
-  padding: 10px;
-  background: #161b22;
-  border: 1px solid #30363d;
-  color: #fff;
-  border-radius: 6px;
-}
-
-.sub-toggle {
-  font-size: 14px;
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-/* Category */
-.category {
-  margin-top: 30px;
-}
-
-.category h2 {
-  color: #f0883e;
-  margin-bottom: 10px;
-}
-
-/* Dork row */
-.dork-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 8px;
-}
-
-.dork {
-  color: #58a6ff;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-/* Copy button */
+/* Copy button – professional */
 .copy-btn {
   position: relative;
-  background: transparent;
-  border: none;
+  background: #21262d;
+  border: 1px solid #30363d;
+  color: #c9d1d9;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 6px;
   cursor: pointer;
-  font-size: 16px;
-  opacity: 0.6;
+  opacity: 0.7;
+  transition: opacity 0.2s ease, background 0.2s ease;
 }
 
 .copy-btn:hover {
   opacity: 1;
+  background: #30363d;
 }
 
 /* Tooltip */
 .copy-btn::after {
   content: "Copy";
   position: absolute;
-  top: -26px;
+  top: -30px;
   left: 50%;
   transform: translateX(-50%);
   background: #1f2933;
   color: #fff;
-  padding: 3px 7px;
-  font-size: 12px;
-  border-radius: 5px;
+  padding: 4px 8px;
+  font-size: 11px;
+  border-radius: 6px;
+  white-space: nowrap;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.2s ease;
