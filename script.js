@@ -4,19 +4,19 @@ const DORKS = {
   ],
 
   "Juicy Extensions": [
-    'site:{domain} (inurl:.git OR inurl:.svn OR inurl:backup OR inurl:dump OR inurl:upload OR inurl:cache OR inurl:.cache OR inurl:.secret OR filetype:env OR filetype:properties OR filetype:ini OR filetype:conf OR filetype:yaml OR filetype:yml OR filetype:json OR filetype:xml OR filetype:csv OR filetype:md OR filetype:sql OR filetype:db OR filetype:sqlite OR filetype:bak OR filetype:zip OR filetype:log OR filetype:key OR filetype:pem OR filetype:crt OR filetype:pfx OR filetype:apk)'
+    'site:{domain} (inurl:.git OR inurl:.svn OR inurl:backup OR inurl:dump OR inurl:upload OR inurl:cache OR inurl:.cache OR inurl:.secret OR filetype:env OR filetype:properties OR filetype:ini OR filetype:conf OR filetype:yaml OR filetype:yml OR filetype:json OR filetype:xml OR filetype:csv OR filetype:md OR filetype:md5 OR filetype:sql OR filetype:db OR filetype:sqlite OR filetype:mdb OR filetype:bak OR filetype:backup OR filetype:zip OR inurl:.tar.gz OR inurl:.tgz OR filetype:tar OR filetype:gz OR filetype:7z OR filetype:rar OR filetype:zip OR filetype:log OR filetype:key OR filetype:pem OR filetype:crt OR filetype:p12 OR filetype:pfx OR filetype:ppk OR filetype:pub OR filetype:asc OR filetype:txt OR filetype:pdf OR filetype:doc OR filetype:docx OR filetype:xls OR filetype:xlsx OR filetype:pptx OR filetype:exe OR filetype:dll OR filetype:bin OR filetype:bat OR filetype:sh OR filetype:tar OR filetype:deb OR filetype:rpm OR filetype:iso OR filetype:img OR filetype:apk OR filetype:msi OR filetype:dmg OR inurl:.tmp OR filetype:config)'
   ],
 
   "Login / Admin Panels": [
-    'site:{domain} (inurl:login OR inurl:signin OR inurl:auth OR inurl:admin OR inurl:dashboard OR inurl:manage OR inurl:/wp-login.php OR intitle:"Login" OR intitle:"Sign In" OR intext:"Admin Login" OR intext:"Restricted access" OR intext:"SSO")'
+    'site:{domain} (inurl:login OR inurl:signin OR inurl:sign-in OR inurl:auth OR inurl:authenticate OR inurl:session OR inurl:account OR inurl:admin OR inurl:administrator OR inurl:adminpanel OR inurl:admin-panel OR inurl:adminConsole OR inurl:dashboard OR inurl:manage OR inurl:manage/login OR inurl:/wp-login.php OR inurl:/user/login OR inurl:/users/sign_in OR inurl:/auth/realms OR inurl:cpanel OR inurl:webmail OR inurl:console OR intitle:Login OR intitle:"Sign In" OR intitle:Signin OR intitle:Administrator OR intext:"Admin Login" OR intext:"Restricted access" OR intext:"For authorized users only" OR intext:"Sign in to your account" OR intext:"single sign-on" OR intext:"SSO")'
   ],
 
   "Server Errors": [
-    'site:{domain} (intext:"Stack trace" OR intext:"Exception in thread" OR intext:"Traceback (most recent call last)" OR intext:"NullPointerException" OR intext:"Fatal error" OR intext:"Unhandled Exception" OR intext:"Server Error" OR intext:"Whitelabel Error Page" OR inurl:/error/ OR inurl:/logs/ OR filetype:log)'
+    'site:{domain} (intext:"Stack trace" OR intext:"Exception in thread" OR intext:"Caused by:" OR intext:"Traceback (most recent call last)" OR intext:"java.lang." OR intext:"NullPointerException" OR intext:"Fatal error" OR intext:"Warning" OR intext:"Notice" OR intext:"Unhandled Exception" OR intext:"Server Error" OR intext:"Application error" OR intext:"Whitelabel Error Page" OR intext:"Request processing failed; nested exception is" OR inurl:/error/ OR inurl:/errors/ OR inurl:/stacktrace/ OR inurl:/logs/ OR inurl:/log/ OR filetype:log OR filetype:txt OR inurl:trace)'
   ],
 
   "Hardcoded Credentials": [
-    'site:{domain} (intext:api_key OR intext:access_token OR intext:client_secret OR intext:secret OR intext:AWS_SECRET_ACCESS_KEY OR intext:AWS_ACCESS_KEY_ID OR intext:DB_PASSWORD OR intext:DATABASE_URL OR intext:"BEGIN PRIVATE KEY" OR intext:"ssh-rsa" OR filetype:env OR filetype:json OR inurl:credentials OR inurl:config OR inurl:.git)'
+    'site:{domain} (intext:api_key OR intext:access_token OR intext:client_secret OR intext:auth_token OR intext:authorizationToken OR intext:x-api-key OR intext:secret OR intext:SECRET_KEY OR intext:secret_token OR intext:credentials OR intext:token OR intext:secure OR intext:AWS_SECRET_ACCESS_KEY OR intext:AWS_ACCESS_KEY_ID OR intext:aws_access_key_id OR intext:aws_secret_key OR intext:aws_token OR intext:GCP_SECRET OR intext:gcloud_api_key OR intext:firebase_url OR intext:shodan_api_key OR intext:DB_PASSWORD OR intext:DATABASE_URL OR intext:db_password OR intext:db_pass OR intext:MYSQL_PASSWORD OR intext:POSTGRES_PASSWORD OR intext:mongo_uri OR intext:mongodb_password OR intext:"BEGIN RSA PRIVATE KEY" OR intext:"BEGIN PRIVATE KEY" OR intext:"ssh-rsa" OR intext:"ssh-ed25519" OR filetype:env OR filetype:json OR filetype:yaml OR filetype:yml OR filetype:properties OR filetype:ini OR inurl:credentials OR inurl:secret OR inurl:config OR inurl:.git)'
   ]
 };
 
@@ -51,9 +51,7 @@ function renderDorks() {
         encodeURIComponent(finalDork);
 
       const row = document.createElement("div");
-      row.style.display = "flex";
-      row.style.alignItems = "center";
-      row.style.gap = "8px";
+      row.className = "dork-row";
 
       const link = document.createElement("a");
       link.href = googleURL;
@@ -62,10 +60,13 @@ function renderDorks() {
       link.textContent = finalDork;
 
       const copyBtn = document.createElement("button");
+      copyBtn.className = "copy-btn";
       copyBtn.textContent = "📋";
-      copyBtn.title = "Copy dork";
+
       copyBtn.onclick = () => {
         navigator.clipboard.writeText(finalDork);
+        copyBtn.classList.add("copied");
+        setTimeout(() => copyBtn.classList.remove("copied"), 1200);
       };
 
       row.appendChild(link);
