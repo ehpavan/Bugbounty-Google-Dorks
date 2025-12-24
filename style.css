@@ -1,0 +1,83 @@
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", monospace;
+}
+
+body {
+  background: #0b0f14;
+  color: #e6edf3;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 25px;
+  color: #58a6ff;
+}
+
+input {
+  width: 100%;
+  max-width: 420px;
+  padding: 12px 14px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #30363d;
+  background: #161b22;
+  color: #e6edf3;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+}
+
+input:focus {
+  box-shadow: 0 0 12px rgba(88,166,255,0.4);
+}
+
+.category {
+  margin-top: 35px;
+  text-align: left;
+  animation: fadeSlide 0.6s ease forwards;
+}
+
+.category h2 {
+  color: #f0883e;
+  border-left: 4px solid #f0883e;
+  padding-left: 10px;
+  margin-bottom: 12px;
+}
+
+.dork {
+  display: block;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  background: #161b22;
+  border-radius: 6px;
+  color: #c9d1d9;
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.25s ease;
+}
+
+.dork:hover {
+  background: #1f2933;
+  color: #58a6ff;
+  transform: translateX(6px);
+  box-shadow: 0 0 10px rgba(88,166,255,0.25);
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
