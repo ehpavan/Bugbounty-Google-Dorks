@@ -10,19 +10,21 @@
   <div class="container">
     <h1>Bug Bounty Google Dorks</h1>
 
-    <input
-      id="domainInput"
-      type="text"
-      value="example.com"
-      placeholder="Enter domain (example.com)"
-      autocomplete="off"
-    />
+    <!-- Input + Include subdomains -->
+    <div class="input-row">
+      <input
+        id="domainInput"
+        type="text"
+        value="example.com"
+        placeholder="Enter domain (example.com)"
+        autocomplete="off"
+      />
 
-    
-    <label style="display:block;margin:10px 0;">
-      <input type="checkbox" id="subToggle" />
-      Include subdomains
-    </label>
+      <label class="sub-toggle">
+        <input type="checkbox" id="subToggle" />
+        Include subdomains
+      </label>
+    </div>
 
     <div id="dorksContainer"></div>
   </div>
