@@ -1,11 +1,93 @@
-/* Copy button – professional */
+* {
+  box-sizing: border-box;
+  font-family: monospace;
+}
+
+body {
+  margin: 0;
+  background: #0b0f14;
+  color: #e6edf3;
+}
+
+/* Layout */
+.container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+h1 {
+  color: #58a6ff;
+  margin-bottom: 20px;
+}
+
+/* Input row */
+.input-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+input {
+  flex: 1;
+  padding: 10px;
+  background: #161b22;
+  border: 1px solid #30363d;
+  color: #e6edf3;
+  border-radius: 6px;
+  outline: none;
+}
+
+input::placeholder {
+  color: #8b949e;
+}
+
+.sub-toggle {
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  color: #c9d1d9;
+}
+
+/* Categories */
+.category {
+  margin-bottom: 30px;
+}
+
+.category h2 {
+  color: #f0883e;
+  margin-bottom: 10px;
+}
+
+/* Dork row */
+.dork-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+/* Dork link */
+.dork {
+  color: #58a6ff;
+  text-decoration: none;
+  font-size: 14px;
+  word-break: break-word;
+}
+
+.dork:hover {
+  text-decoration: underline;
+}
+
+/* Professional copy button */
 .copy-btn {
   position: relative;
   background: #21262d;
   border: 1px solid #30363d;
   color: #c9d1d9;
   font-size: 12px;
-  padding: 4px 8px;
+  padding: 4px 10px;
   border-radius: 6px;
   cursor: pointer;
   opacity: 0.7;
@@ -21,11 +103,11 @@
 .copy-btn::after {
   content: "Copy";
   position: absolute;
-  top: -30px;
+  top: -32px;
   left: 50%;
   transform: translateX(-50%);
   background: #1f2933;
-  color: #fff;
+  color: #e6edf3;
   padding: 4px 8px;
   font-size: 11px;
   border-radius: 6px;
